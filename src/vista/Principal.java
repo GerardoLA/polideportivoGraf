@@ -37,10 +37,13 @@ public class Principal extends JFrame{
 		btnActividades = new JButton("GESTOR ACTIVIDADES");
 		btnActividades.setBounds(157, 141, 176, 23);
 		getContentPane().add(btnActividades);
+		contentPane.add(btnActividades);
 		
 		btnInscripciones = new JButton("GESTOR INSCRIPCIONES");
 		btnInscripciones.setBounds(157, 228, 176, 23);
 		getContentPane().add(btnInscripciones);
+		contentPane.add(btnInscripciones);
+		
 	
 	
 

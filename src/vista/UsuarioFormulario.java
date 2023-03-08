@@ -4,9 +4,16 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+
+import modelo.Usuario;
+import modelo.UsuarioModelo;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class UsuarioFormulario extends JDialog{
 	
@@ -120,6 +127,23 @@ public class UsuarioFormulario extends JDialog{
 		CodigoUsuarioText.setColumns(10);
 		
 		btnBuscar = new JButton("BUSCAR");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+
+//				UsuarioModelo usuMod = new UsuarioModelo();
+//				usuMod.conectar();
+//				Usuario usuario = usuMod.getUsuario(IdUsuarioText.getText());
+//				NombreUsuarioText.setText(usuario.getNombre_apellido());
+//				DniUsuarioText.setText(usuario.getDni());
+//				IdUsuarioText.setText(Int(usuario.getId()));
+//				CodigoUsuarioText.setText(usuario.getCodigo());
+//				
+//				usuMod.cerrar();
+				
+				
+			}
+		});
 		btnBuscar.setBounds(398, 56, 103, 23);
 		contentPane.add(btnBuscar);
 		
