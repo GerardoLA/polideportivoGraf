@@ -3,7 +3,9 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import modelo.UsuarioModelo;
 import vista.Principal;
+import vista.UsuarioFormulario;
 
 public class ControladorPrincipal implements ActionListener{
 	private Principal frmPrincipal;
@@ -24,7 +26,13 @@ public class ControladorPrincipal implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getSource() == frmPrincipal.btnUsuarios) {
+			vista.UsuarioFormulario usuarioForm = new UsuarioFormulario(frmPrincipal,true);
+			UsuarioModelo usuarioMod = new UsuarioModelo();
+			ControladorUsuario usuarioContr = new ControladorUsuario(usuarioMod,usuarioForm);
+			usuarioContr.inicializar();
+			usuarioForm.setVisible(true);
+		}
 		
 	}
 
