@@ -131,15 +131,15 @@ public class UsuarioFormulario extends JDialog{
 			public void actionPerformed(ActionEvent e) {
 				UsuarioModelo usuMod = new UsuarioModelo();
 				usuMod.conectar();
-				Usuario usuario = usuMod.getUsuario(DniUsuarioText.getText());
+			
+				Usuario usuario = usuMod.getUsuario(Integer.parseInt(IdUsuarioText.getText()));
+				IdUsuarioText.setText(String.valueOf(usuario.getId()));
 				NombreUsuarioText.setText(usuario.getNombre_apellido());
 				DniUsuarioText.setText(usuario.getDni());
 				CodigoUsuarioText.setText(usuario.getCodigo());
-			//	IdUsuarioText.setText();
 				
 				usuMod.cerrar();
-				
-				
+					
 			}
 		});
 		btnBuscar.setBounds(398, 56, 103, 23);
