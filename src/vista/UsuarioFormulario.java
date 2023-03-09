@@ -129,17 +129,15 @@ public class UsuarioFormulario extends JDialog{
 		btnBuscar = new JButton("BUSCAR");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-
-//				UsuarioModelo usuMod = new UsuarioModelo();
-//				usuMod.conectar();
-//				Usuario usuario = usuMod.getUsuario(IdUsuarioText.getText());
-//				NombreUsuarioText.setText(usuario.getNombre_apellido());
-//				DniUsuarioText.setText(usuario.getDni());
-//				IdUsuarioText.setText(Int(usuario.getId()));
-//				CodigoUsuarioText.setText(usuario.getCodigo());
-//				
-//				usuMod.cerrar();
+				UsuarioModelo usuMod = new UsuarioModelo();
+				usuMod.conectar();
+				Usuario usuario = usuMod.getUsuario(DniUsuarioText.getText());
+				NombreUsuarioText.setText(usuario.getNombre_apellido());
+				DniUsuarioText.setText(usuario.getDni());
+				CodigoUsuarioText.setText(usuario.getCodigo());
+			//	IdUsuarioText.setText();
+				
+				usuMod.cerrar();
 				
 				
 			}
@@ -152,11 +150,28 @@ public class UsuarioFormulario extends JDialog{
 		contentPane.add(btnModificar);
 		
 		btnEliminar = new JButton("ELIMINAR");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnEliminar.setBounds(401, 159, 89, 23);
 		contentPane.add(btnEliminar);
 		
 		btnGuardar = new JButton("GUARDAR");
 		btnGuardar.setBounds(401, 216, 89, 23);
 		contentPane.add(btnGuardar);
+		
+		JButton btnLimpiar = new JButton("LIMPIAR");
+		btnLimpiar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				NombreUsuarioText.setText("");
+				DniUsuarioText.setText("");
+				IdUsuarioText.setText("");
+				CodigoUsuarioText.setText("");
+			}
+		});
+		btnLimpiar.setBounds(184, 266, 89, 23);
+		contentPane.add(btnLimpiar);
 	}
 }
