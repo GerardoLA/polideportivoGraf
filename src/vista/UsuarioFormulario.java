@@ -127,21 +127,6 @@ public class UsuarioFormulario extends JDialog{
 		CodigoUsuarioText.setColumns(10);
 		
 		btnBuscar = new JButton("BUSCAR");
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				UsuarioModelo usuMod = new UsuarioModelo();
-				usuMod.conectar();
-			
-				Usuario usuario = usuMod.getUsuario(Integer.parseInt(IdUsuarioText.getText()));
-				IdUsuarioText.setText(String.valueOf(usuario.getId()));
-				NombreUsuarioText.setText(usuario.getNombre_apellido());
-				DniUsuarioText.setText(usuario.getDni());
-				CodigoUsuarioText.setText(usuario.getCodigo());
-				
-				usuMod.cerrar();
-					
-			}
-		});
 		btnBuscar.setBounds(398, 56, 103, 23);
 		contentPane.add(btnBuscar);
 		
@@ -173,5 +158,29 @@ public class UsuarioFormulario extends JDialog{
 		});
 		btnLimpiar.setBounds(184, 266, 89, 23);
 		contentPane.add(btnLimpiar);
+	}
+
+
+
+	public void setIdUsuarioText(JTextField idUsuarioText) {
+		IdUsuarioText = idUsuarioText;
+	}
+
+
+
+	public void setNombreUsuarioText(JTextField nombreUsuarioText) {
+		NombreUsuarioText = nombreUsuarioText;
+	}
+
+
+
+	public void setDniUsuarioText(JTextField dniUsuarioText) {
+		DniUsuarioText = dniUsuarioText;
+	}
+
+
+
+	public void setCodigoUsuarioText(JTextField codigoUsuarioText) {
+		CodigoUsuarioText = codigoUsuarioText;
 	}
 }
