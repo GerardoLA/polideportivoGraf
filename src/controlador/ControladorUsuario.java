@@ -30,6 +30,7 @@ public class ControladorUsuario implements ActionListener,MouseListener{
 		usuarioForm.setLocationRelativeTo(null);
 		usuarioForm.setVisible(false);
 		usuarioMod.conectar();
+		
 		}
 	
 
