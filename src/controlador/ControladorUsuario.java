@@ -38,10 +38,10 @@ public class ControladorUsuario implements ActionListener,MouseListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == usuarioForm.getBtnBuscar()) {
-			UsuarioModelo usuMod = new UsuarioModelo();
+			int id= Integer.parseInt(usuarioForm.getIdUsuarioText().getText());
 			
-			Usuario usuario = usuMod.getUsuario(Integer.parseInt(usuarioForm.getIdUsuarioText().getText()));
-//			usuarioForm.setNombreUsuarioText(JTextField);
+	//		Usuario usuario = usuMod.getUsuario(Integer.parseInt(usuarioForm.getIdUsuarioText().getText()));
+		//	usuarioForm.setNombreUsuarioText(JTextField);
 //			DniUsuarioText.setText(usuario.getDni());
 //			CodigoUsuarioText.setText(usuario.getCodigo());
 		}
