@@ -3,8 +3,9 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.MouseListener;import javax.swing.JTextField;
 
+import modelo.Usuario;
 import modelo.UsuarioModelo;
 import vista.UsuarioFormulario;
 
@@ -37,8 +38,14 @@ public class ControladorUsuario implements ActionListener,MouseListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		if (e.getSource() == usuarioForm.getBtnBuscar()) {
+			UsuarioModelo usuMod = new UsuarioModelo();
+			
+			Usuario usuario = usuMod.getUsuario(Integer.parseInt(usuarioForm.getIdUsuarioText().getText()));
+//			usuarioForm.setNombreUsuarioText(JTextField);
+//			DniUsuarioText.setText(usuario.getDni());
+//			CodigoUsuarioText.setText(usuario.getCodigo());
+		}
 	}
 
 	@Override

@@ -29,12 +29,12 @@ public class UsuarioModelo extends Conector{
 		
 	}
 	
-	public Usuario getUsuario(String dni) {
+	public Usuario getUsuario(int id) {
 		super.conectar();
 		Usuario usuario= new Usuario();
 		try {
-			pst= con.prepareStatement("SELECT * FROM usuarios WHERE dni =?");
-			pst.setString(1, usuario.getDni());
+			pst= con.prepareStatement("SELECT * FROM usuarios WHERE id =?");
+			pst.setInt(1, usuario.getId());
 			ResultSet resultado = pst.executeQuery();
 			resultado.next();
 			usuario.setId(resultado.getInt("id"));
