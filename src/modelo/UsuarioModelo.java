@@ -42,6 +42,7 @@ public class UsuarioModelo extends Conector{
 				pst.setString(3, usuario.getCodigo());
 				pst.setInt(4, usuario.getId());
 				pst.execute();
+				super.cerrar();
 				return true;
 			
 			} catch (SQLException e) {
@@ -51,6 +52,25 @@ public class UsuarioModelo extends Conector{
 			}
 		
 	}
+		
+		public boolean eliminar (Usuario usuario) {
+			super.conectar();
+			try {
+				pst=con.prepareStatement("DELETE  from usuarios where id=?");
+				pst.setInt(1, usuario.getId());
+				pst.execute();
+				super.cerrar();
+				return true;
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			
+			return false;
+		}
 	
 	public Usuario getUsuario(int id) {
 		super.conectar();
@@ -64,7 +84,7 @@ public class UsuarioModelo extends Conector{
 			usuario.setNombre_apellido(resultado.getString("nombre_apellido"));
 			usuario.setDni(resultado.getString("dni"));
 			usuario.setCodigo(resultado.getString("codigo"));
-			
+			super.cerrar();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
