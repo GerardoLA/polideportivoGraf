@@ -31,7 +31,7 @@ public class ControladorPrincipal implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == frmPrincipal.btnUsuarios) {
-			vista.UsuarioFormulario usuarioForm = new UsuarioFormulario(frmPrincipal,true);
+			UsuarioFormulario usuarioForm = new UsuarioFormulario(frmPrincipal,true);
 			UsuarioModelo usuarioMod = new UsuarioModelo();
 			ControladorUsuario usuarioContr = new ControladorUsuario(usuarioMod,usuarioForm);
 			usuarioContr.inicializar();

@@ -9,7 +9,7 @@ import controlador.Conector;
 public class UsuarioModelo extends Conector{
 	PreparedStatement pst;
 	
-	public void insertarUsuario(Usuario usuario) {
+	public boolean insertarUsuario(Usuario usuario) {
 		super.conectar();
 		
 		try {
@@ -20,11 +20,15 @@ public class UsuarioModelo extends Conector{
 			pst.setString(3, usuario.getCodigo());
 			
 			pst.execute();
-			super.con.close();
+			super.cerrar();
+			return true;
+			
 		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
+			
 		}
 		
 	}

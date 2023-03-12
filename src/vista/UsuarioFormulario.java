@@ -18,66 +18,17 @@ import java.awt.event.ActionEvent;
 public class UsuarioFormulario extends JDialog{
 	
 	private JPanel contentPane;
-	private JTextField IdUsuarioText;
-	private JTextField NombreUsuarioText;
-	private JTextField DniUsuarioText;
-	private JTextField CodigoUsuarioText;
-	private JButton btnBuscar;
-	private JButton btnModificar;
-	public JPanel getContentPane() {
-		return contentPane;
-	}
+	public JTextField IdUsuarioText;
+	public JTextField NombreUsuarioText;
+	public JTextField DniUsuarioText;
+	public JTextField CodigoUsuarioText;
+	public JButton btnBuscar;
+	public JButton btnModificar;
+	public JButton btnEliminar;
+	public JButton btnGuardar;
 
 	
 
-	public JTextField getIdUsuarioText() {
-		return IdUsuarioText;
-	}
-
-	
-
-	public JTextField getNombreUsuarioText() {
-		return NombreUsuarioText;
-	}
-
-	
-	public JTextField getDniUsuarioText() {
-		return DniUsuarioText;
-	}
-
-	
-
-	public JTextField getCodigoUsuarioText() {
-		return CodigoUsuarioText;
-	}
-
-	
-
-	public JButton getBtnBuscar() {
-		return btnBuscar;
-	}
-
-	
-
-	public JButton getBtnModificar() {
-		return btnModificar;
-	}
-
-	
-
-	public JButton getBtnEliminar() {
-		return btnEliminar;
-	}
-
-	
-
-	public JButton getBtnGuardar() {
-		return btnGuardar;
-	}
-
-	
-	private JButton btnEliminar;
-	private JButton btnGuardar;
 	
 	public UsuarioFormulario(JFrame padre,boolean modal ) {
 		super(padre, modal);
@@ -99,14 +50,17 @@ public class UsuarioFormulario extends JDialog{
 		contentPane.add(IdUsuarioText);
 		IdUsuarioText.setColumns(10);
 		
+		
+		JLabel lblNombreApellido = new JLabel("Nombre_Apellido:");
+		lblNombreApellido.setBounds(41, 109, 86, 27);
+		contentPane.add(lblNombreApellido);
+		
 		NombreUsuarioText = new JTextField();
 		NombreUsuarioText.setBounds(161, 106, 130, 20);
 		contentPane.add(NombreUsuarioText);
 		NombreUsuarioText.setColumns(10);
 		
-		JLabel lblNombreApellido = new JLabel("Nombre_Apellido:");
-		lblNombreApellido.setBounds(41, 109, 86, 27);
-		contentPane.add(lblNombreApellido);
+		
 		
 		JLabel lblDni = new JLabel("DNI:");
 		lblDni.setBounds(48, 163, 46, 14);
@@ -126,6 +80,7 @@ public class UsuarioFormulario extends JDialog{
 		contentPane.add(CodigoUsuarioText);
 		CodigoUsuarioText.setColumns(10);
 		
+		
 		btnBuscar = new JButton("BUSCAR");
 		btnBuscar.setBounds(398, 56, 103, 23);
 		contentPane.add(btnBuscar);
@@ -135,14 +90,10 @@ public class UsuarioFormulario extends JDialog{
 		contentPane.add(btnModificar);
 		
 		btnEliminar = new JButton("ELIMINAR");
-		btnEliminar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnEliminar.setBounds(401, 159, 89, 23);
+		btnEliminar.setBounds(398, 105, 103, 23);
 		contentPane.add(btnEliminar);
 		
+
 		btnGuardar = new JButton("GUARDAR");
 		btnGuardar.setBounds(401, 216, 89, 23);
 		contentPane.add(btnGuardar);
@@ -158,6 +109,16 @@ public class UsuarioFormulario extends JDialog{
 		});
 		btnLimpiar.setBounds(184, 266, 89, 23);
 		contentPane.add(btnLimpiar);
+	}
+	
+	public Usuario getDatosUsuario() {
+		Usuario usuario = new Usuario();
+		usuario.setId(Integer.parseInt(this.IdUsuarioText.getText()));
+		usuario.setNombre_apellido(this.NombreUsuarioText.getText());
+		usuario.setDni(this.DniUsuarioText.getText());
+		usuario.setCodigo(this.CodigoUsuarioText.getText());
+		
+		return usuario;
 	}
 
 
@@ -183,4 +144,17 @@ public class UsuarioFormulario extends JDialog{
 	public void setCodigoUsuarioText(JTextField codigoUsuarioText) {
 		CodigoUsuarioText = codigoUsuarioText;
 	}
+	
+	public void meterDatos(Usuario usuario) {
+		IdUsuarioText.setText(String.valueOf(usuario.getId()));
+		NombreUsuarioText.setText(usuario.getNombre_apellido());
+		DniUsuarioText.setText(usuario.getDni());
+		CodigoUsuarioText.setText(usuario.getCodigo());
+	}
+	public void limpiar() {
+		IdUsuarioText.setText("");
+		NombreUsuarioText.setText("");
+		DniUsuarioText.setText("");
+		CodigoUsuarioText.setText("");
+		}
 }

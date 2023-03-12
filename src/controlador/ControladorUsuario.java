@@ -3,27 +3,35 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;import javax.swing.JTextField;
+import java.awt.event.MouseListener;
+
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import modelo.Usuario;
 import modelo.UsuarioModelo;
 import vista.UsuarioFormulario;
 
 public class ControladorUsuario implements ActionListener,MouseListener{
-	private UsuarioFormulario usuarioForm;
+	private vista.UsuarioFormulario usuarioForm;
 	private UsuarioModelo usuarioMod;
 	
-	public ControladorUsuario(UsuarioFormulario usuarioFormulario) {
-		usuarioForm = usuarioFormulario;
-		usuarioForm.getBtnBuscar().addActionListener(this);
-		usuarioForm.getBtnEliminar().addActionListener(this);
-		usuarioForm.getBtnGuardar().addActionListener(this);
-		usuarioForm.getBtnModificar().addActionListener(this);
-	}
+//	public ControladorUsuario(UsuarioFormulario usuarioFormulario) {
+//		usuarioForm = usuarioFormulario;
+//		
+////		usuarioForm.getBtnEliminar().addActionListener(this);
+////		usuarioForm.getBtnGuardar().addActionListener(this);
+////		usuarioForm.getBtnModificar().addActionListener(this);
+//	}
 	
 	public ControladorUsuario(UsuarioModelo usuarioMod, UsuarioFormulario usuarioForm) {
-		this.usuarioForm=usuarioForm;
-		this.usuarioMod=usuarioMod;
+		this.usuarioMod = usuarioMod;
+		this.usuarioForm = usuarioForm;
+		
+		this.usuarioForm.btnBuscar.addActionListener(this);
+		this.usuarioForm.btnModificar.addActionListener(this);
+		this.usuarioForm.btnGuardar.addActionListener(this);
+		this.usuarioForm.btnEliminar.addActionListener(this);
 	}
 
 	public void inicializar() {
@@ -37,13 +45,17 @@ public class ControladorUsuario implements ActionListener,MouseListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == usuarioForm.getBtnBuscar()) {
-			int id= Integer.parseInt(usuarioForm.getIdUsuarioText().getText());
+		if (e.getSource() == usuarioForm.btnGuardar) {
 			
-	//		Usuario usuario = usuMod.getUsuario(Integer.parseInt(usuarioForm.getIdUsuarioText().getText()));
-		//	usuarioForm.setNombreUsuarioText(JTextField);
-//			DniUsuarioText.setText(usuario.getDni());
-//			CodigoUsuarioText.setText(usuario.getCodigo());
+			Usuario usuario =usuarioForm.getDatosUsuario();
+			usuarioMod.conectar();
+			if(usuarioMod.insertarUsuario(usuario)) {
+				JOptionPane.showMessageDialog(usuarioForm, "Usuario Guardado", "ok",JOptionPane.INFORMATION_MESSAGE);
+				usuarioForm.limpiar();	
+			}else {
+				JOptionPane.showMessageDialog(usuarioForm, "Error en el registro","Error",JOptionPane.INFORMATION_MESSAGE);
+			}
+			
 		}
 	}
 
