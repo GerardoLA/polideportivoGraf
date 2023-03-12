@@ -56,8 +56,20 @@ public class ControladorUsuario implements ActionListener,MouseListener{
 				JOptionPane.showMessageDialog(usuarioForm, "Error en el registro","Error",JOptionPane.INFORMATION_MESSAGE);
 			}
 			
+		}if(e.getSource() == usuarioForm.btnModificar) {
+			
+			Usuario usuario = usuarioForm.getDatosUsuario();
+			usuarioMod.conectar();
+			if(usuarioMod.modificar(usuario)) {
+				JOptionPane.showMessageDialog(usuarioForm, "Usuario modificado", "ok",JOptionPane.INFORMATION_MESSAGE);
+				usuarioForm.limpiar();
+			}else {
+				JOptionPane.showMessageDialog(usuarioForm, "Error en la modificación","Error",JOptionPane.ERROR_MESSAGE);
+			}
 		}
+		
 	}
+	
 
 	@Override
 	public void mouseClicked(MouseEvent e) {

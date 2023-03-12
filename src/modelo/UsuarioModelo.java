@@ -31,6 +31,25 @@ public class UsuarioModelo extends Conector{
 			
 		}
 		
+		
+			
+		}public boolean modificar( Usuario usuario) {
+			super.conectar();
+			try {
+				pst = con.prepareStatement ("UPDATE usuarios SET nombre_apellido=?, dni=?,codigo=? WHERE id=?");
+				pst.setString(1, usuario.getNombre_apellido());
+				pst.setString(2, usuario.getDni());
+				pst.setString(3, usuario.getCodigo());
+				pst.setInt(4, usuario.getId());
+				pst.execute();
+				return true;
+			
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+		
 	}
 	
 	public Usuario getUsuario(int id) {

@@ -157,4 +157,7 @@ public class UsuarioFormulario extends JDialog{
 		DniUsuarioText.setText("");
 		CodigoUsuarioText.setText("");
 		}
+	public void modificar() {
+		
+	}
 }
