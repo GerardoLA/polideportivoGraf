@@ -67,17 +67,36 @@ public class UsuarioModelo extends Conector{
 				e.printStackTrace();
 			}
 			
+			return false;
+		}
+	
+		
+		public boolean buscar (Usuario usuario) {
+			super.conectar();
+			try {
+				pst = con.prepareStatement("SELECT* from usuarios where id=?");
+				pst.setInt(1, usuario.getId());
+				ResultSet resultado = pst.executeQuery();
+				resultado.next();
+			
+				
+				super.cerrar();
+				return true;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			
 			return false;
 		}
-	
+		
 	public Usuario getUsuario(int id) {
 		super.conectar();
 		Usuario usuario= new Usuario();
 		try {
 			pst= con.prepareStatement("SELECT * FROM usuarios WHERE id =?");
-			pst.setInt(1, usuario.getId());
+			pst.setInt(1,id);
 			ResultSet resultado = pst.executeQuery();
 			resultado.next();
 			usuario.setId(resultado.getInt("id"));

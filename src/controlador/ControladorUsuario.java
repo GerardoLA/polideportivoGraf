@@ -75,7 +75,17 @@ public class ControladorUsuario implements ActionListener,MouseListener{
 			}else {
 				JOptionPane.showMessageDialog(usuarioForm, "Error en la eliminación","Error",JOptionPane.WARNING_MESSAGE);
 			}
-			
+			usuarioMod.cerrar();
+		}if(e.getSource() == usuarioForm.btnBuscar) {
+			int id = Integer.parseInt(usuarioForm.IdUsuarioText.getText());
+			usuarioMod.conectar();
+			Usuario usuario = usuarioMod.getUsuario(id);
+			if(usuario != null) {
+				usuarioForm.meterDatos(usuario);
+				
+			}else {
+				JOptionPane.showMessageDialog(usuarioForm, "Error en la busqueda","error",JOptionPane.ERROR_MESSAGE);
+			}usuarioMod.cerrar();
 		}
 		
 	}
