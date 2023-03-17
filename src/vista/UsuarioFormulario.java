@@ -26,6 +26,8 @@ public class UsuarioFormulario extends JDialog{
 	public JButton btnModificar;
 	public JButton btnEliminar;
 	public JButton btnGuardar;
+	public JButton btnSalir;
+	private JButton btnLimpiar;
 
 	
 
@@ -98,7 +100,7 @@ public class UsuarioFormulario extends JDialog{
 		btnGuardar.setBounds(401, 216, 89, 23);
 		contentPane.add(btnGuardar);
 		
-		JButton btnLimpiar = new JButton("LIMPIAR");
+		btnLimpiar = new JButton("LIMPIAR");
 		btnLimpiar.setBounds(184, 266, 89, 23);
 		btnLimpiar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -109,7 +111,18 @@ public class UsuarioFormulario extends JDialog{
 			}
 		});
 		contentPane.add(btnLimpiar);
+		
+		btnSalir = new JButton("SALIR");
+		btnSalir.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+		}
+		});
+		btnSalir.setBounds(398, 277, 89, 23);
+		contentPane.add(btnSalir);
 	}
+	
+	
 	
 	public Usuario getDatosUsuario() {
 		Usuario usuario = new Usuario();
