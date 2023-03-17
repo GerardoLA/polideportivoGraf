@@ -6,19 +6,24 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 
 public class ActividadFormulario extends JDialog{
 	private JPanel contentPane;
-	private JTextField IdText;
-	private JTextField NombreText;
-	private JTextField FechaInicioText;
-	private JTextField DiasText;
-	private JTextField MaxParticText;
-	private JTextField PrecioText;
-	private JButton btnBuscar;
-	private JButton btnModificar;
-	private JButton btnEliminar;
+	public JTextField IdText;
+	public JTextField NombreText;
+	public JTextField FechaInicioText;
+	public JTextField DiasText;
+	public JTextField MaxParticText;
+	public JTextField PrecioText;
+	public JButton btnBuscar;
+	public JButton btnModificar;
+	public JButton btnEliminar;
+	private JButton btnSalir;
 	
 	public ActividadFormulario(JFrame padre,boolean modal ) {
 		super(padre, modal);
@@ -98,6 +103,16 @@ public class ActividadFormulario extends JDialog{
 		btnEliminar = new JButton("ELIMINAR");
 		btnEliminar.setBounds(375, 216, 119, 23);
 		contentPane.add(btnEliminar);
+		
+		btnSalir = new JButton("SALIR");
+		btnSalir.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		
+		btnSalir.setBounds(375, 268, 89, 23);
+		contentPane.add(btnSalir);
 	}
 
 	public JButton getBtnBuscar() {

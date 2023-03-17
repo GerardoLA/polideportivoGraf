@@ -27,7 +27,7 @@ public class UsuarioFormulario extends JDialog{
 	public JButton btnEliminar;
 	public JButton btnGuardar;
 	public JButton btnSalir;
-	private JButton btnLimpiar;
+	public JButton btnLimpiar;
 
 	
 
