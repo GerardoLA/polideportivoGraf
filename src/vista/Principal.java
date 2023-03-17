@@ -14,7 +14,7 @@ public class Principal extends JFrame{
 	public JButton btnUsuarios;
 	public JButton btnActividades;
 	public JButton btnInscripciones;
-	
+	public JButton btnSalir;
 	
 	
 	public Principal() {
@@ -44,10 +44,29 @@ public class Principal extends JFrame{
 		getContentPane().add(btnInscripciones);
 		contentPane.add(btnInscripciones);
 		
-	
+		JButton btnSalir = new JButton("SALIR");
+		btnSalir.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnSalir.setBounds(360,260,89,23);
+		contentPane.add(btnSalir);
 	
 
 }
+
+
+
+	public JButton getBtnSalir() {
+		return btnSalir;
+	}
+
+
+
+	public JPanel getContentPane() {
+		return contentPane;
+	}
 
 
 
@@ -66,8 +85,4 @@ public class Principal extends JFrame{
 	public JButton getBtnInscripciones() {
 		return btnInscripciones;
 	}
-
-
-
-	
 }

@@ -52,6 +52,9 @@ public class ControladorPrincipal implements ActionListener{
 			insForm.setVisible(true);
 		}
 		
+			
+		}
+		
 	}
 	
 	
@@ -63,4 +66,4 @@ public class ControladorPrincipal implements ActionListener{
 	
 	
 	
-}
+
