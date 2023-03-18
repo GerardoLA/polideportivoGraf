@@ -16,13 +16,6 @@ public class ControladorUsuario implements ActionListener,MouseListener{
 	private vista.UsuarioFormulario usuarioForm;
 	private UsuarioModelo usuarioMod;
 	
-//	public ControladorUsuario(UsuarioFormulario usuarioFormulario) {
-//		usuarioForm = usuarioFormulario;
-//		
-////		usuarioForm.getBtnEliminar().addActionListener(this);
-////		usuarioForm.getBtnGuardar().addActionListener(this);
-////		usuarioForm.getBtnModificar().addActionListener(this);
-//	}
 	
 	public ControladorUsuario(UsuarioModelo usuarioMod, UsuarioFormulario usuarioForm) {
 		this.usuarioMod = usuarioMod;
