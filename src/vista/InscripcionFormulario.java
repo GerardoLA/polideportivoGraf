@@ -13,23 +13,13 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 
 public class InscripcionFormulario extends JDialog{
-	private JPanel contentPane;
-	private JTextField IdActividadText;
-	private JTextField IdUsuarioText;
-	private JTextField textField;
+	public JPanel contentPane;
+	public JTextField IdActividadText;
+	public JTextField IdUsuarioText;
+	public JTextField IdActividadtextField;
 	JButton btnVerUsuarios;
 	JButton btnEliminar;
 
-	
-	public JButton getBtnVerUsuarios() {
-		return btnVerUsuarios;
-	}
-
-
-
-	public JButton getBtnEliminar() {
-		return btnEliminar;
-	}
 
 
 
@@ -45,12 +35,12 @@ public class InscripcionFormulario extends JDialog{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblId = new JLabel("ID:");
-		lblId.setBounds(56, 65, 46, 14);
-		contentPane.add(lblId);
+		JLabel lblIdInscripcion = new JLabel("ID INSCRIPCION:");
+		lblIdInscripcion.setBounds(56, 65, 85, 14);
+		contentPane.add(lblIdInscripcion);
 		
 		IdActividadText = new JTextField();
-		IdActividadText.setBounds(148, 62, 73, 20);
+		IdActividadText.setBounds(160, 62, 73, 20);
 		contentPane.add(IdActividadText);
 		IdActividadText.setColumns(10);
 		
@@ -59,7 +49,7 @@ public class InscripcionFormulario extends JDialog{
 		contentPane.add(lbIdUsuario);
 		
 		IdUsuarioText = new JTextField();
-		IdUsuarioText.setBounds(148, 105, 73, 20);
+		IdUsuarioText.setBounds(160, 105, 73, 20);
 		contentPane.add(IdUsuarioText);
 		IdUsuarioText.setColumns(10);
 		
@@ -67,17 +57,17 @@ public class InscripcionFormulario extends JDialog{
 		lblIdActividad.setBounds(56, 155, 73, 14);
 		contentPane.add(lblIdActividad);
 		
-		textField = new JTextField();
-		textField.setBounds(148, 152, 73, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		IdActividadtextField = new JTextField();
+		IdActividadtextField.setBounds(160, 152, 73, 20);
+		contentPane.add(IdActividadtextField);
+		IdActividadtextField.setColumns(10);
 		
 		btnVerUsuarios = new JButton("VER USUARIOS ");
-		btnVerUsuarios.setBounds(373, 65, 121, 23);
+		btnVerUsuarios.setBounds(288, 61, 121, 23);
 		contentPane.add(btnVerUsuarios);
 		
 		btnEliminar = new JButton("ELIMINAR");
-		btnEliminar.setBounds(373, 108, 89, 23);
+		btnEliminar.setBounds(288, 104, 89, 23);
 		contentPane.add(btnEliminar);
 		
 		JScrollPane scrollPane = new JScrollPane();

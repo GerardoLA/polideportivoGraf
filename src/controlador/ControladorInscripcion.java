@@ -9,26 +9,21 @@ import modelo.InscripcionModelo;
 import vista.InscripcionFormulario;
 
 public class ControladorInscripcion implements ActionListener, MouseListener{
-	private InscripcionFormulario inscripcionForm;
+	private InscripcionFormulario formularioInscripcion;
 	private InscripcionModelo inscripcionMod;
 	
-	public ControladorInscripcion(InscripcionFormulario inscripcionFormulario) {
-	inscripcionForm = inscripcionFormulario;
-	inscripcionFormulario.getBtnEliminar().addActionListener(this);
-	inscripcionFormulario.getBtnVerUsuarios().addActionListener(this);
-	}
 	
-	public ControladorInscripcion(InscripcionModelo inscripcionMod,InscripcionFormulario inscripcionForm) {
+	public ControladorInscripcion(InscripcionModelo inscripcionMod,InscripcionFormulario formularioInscripcion) {
 		
-		this.inscripcionForm=inscripcionForm;
+		this.formularioInscripcion=formularioInscripcion;
 		this.inscripcionMod=inscripcionMod;}
 	
 	
 	
 	public void inicializar() {
-		inscripcionForm.setTitle("Formulario de inscripciones");
-		inscripcionForm.setLocationRelativeTo(null);
-		inscripcionForm.setVisible(false);
+		formularioInscripcion.setTitle("Formulario de inscripciones");
+		formularioInscripcion.setLocationRelativeTo(null);
+		formularioInscripcion.setVisible(false);
 		}
 	
 	
