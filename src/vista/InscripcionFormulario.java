@@ -8,8 +8,13 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JInternalFrame;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import modelo.Usuario;
+
 import java.awt.Color;
 
 public class InscripcionFormulario extends JDialog{
@@ -20,6 +25,9 @@ public class InscripcionFormulario extends JDialog{
 	JButton btnVerUsuarios;
 	JButton btnEliminar;
 
+	public JTable table;
+	private JTable table1;
+	private DefaultTableModel tableModel;
 
 
 
@@ -71,9 +79,35 @@ public class InscripcionFormulario extends JDialog{
 		contentPane.add(btnEliminar);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setViewportBorder(new LineBorder(Color.GRAY));
 		scrollPane.setBounds(265, 165, 262, 149);
+		scrollPane.setViewportBorder(new LineBorder(Color.GRAY));
 		contentPane.add(scrollPane);
+		
+		table1 = new JTable();
+		this.tableModel= new DefaultTableModel();
+		table.setModel(tableModel);
+		
+		tableModel.addColumn("id");
+		tableModel.addColumn("nombre_apellido");
+		tableModel.addColumn("dni");
+		tableModel.addColumn("codigo");
+		scrollPane.setViewportView(table1);
+		
+		public void rellenarTablaUsuarios(ArrayList<Usuario>usuarios) {
+			for (Usuario usuario : usuarios) {
+				Object[] fila =new Object[6];
+				fila[0] = usuario.getId();
+				fila[1]	= usuario.getNombre_apellido();
+				fila[2]	= usuario.getDni();
+				fila[3]	= usuario.getCodigo();
+				
+				this.tableModel.addRow(fila);
+				
+			}
+		}
+		
+		
+		
 
 }
 }

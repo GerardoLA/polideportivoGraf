@@ -150,7 +150,7 @@ public class ActividadFormulario extends JDialog{
 	public void meterDatos(Actividad actividad) {
 		IdText.setText(String.valueOf(actividad.getId()));
 		NombreText.setText(actividad.getNombre());
-		FechaInicioText.setText(actividad.getDias_semana());
+		FechaInicioText.setText(String.valueOf(actividad.getFecha_inicio()));
 		DiasText.setText(actividad.getDias_semana());
 		Horastext.setText(String.valueOf(actividad.getId()));
 		MaxParticText.setText(String.valueOf(actividad.getMax_participantes()));
